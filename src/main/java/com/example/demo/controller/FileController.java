@@ -29,8 +29,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FileController {
 	
-	@Autowired
 	private FileStorageService fileStorageService;
+	
+	@Autowired
+	FileController(FileStorageService service){
+		fileStorageService = service;
+	}
 
 	@PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
