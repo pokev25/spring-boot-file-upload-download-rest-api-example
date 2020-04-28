@@ -2,18 +2,23 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import com.example.demo.util.GenericHandler;
+import com.example.demo.util.MyTestBean;
 
-import com.example.demo.config.FileStorageProperties;
+import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
-@EnableConfigurationProperties({
-    FileStorageProperties.class
-})
+@Slf4j
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+		
+		MyTestBean bean = context.getBean(MyTestBean.class);
+		log.info(bean.getHello());
+		
+		GenericHandler handler = new GenericHandler();
+		log.info(handler.getBean());
 	}
-
 }
