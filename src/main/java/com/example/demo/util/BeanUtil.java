@@ -4,9 +4,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
-
 
 @Component
 public class BeanUtil implements ApplicationContextAware{
@@ -20,6 +17,5 @@ public class BeanUtil implements ApplicationContextAware{
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		context = applicationContext;
-	}
-	
+	}	
 }
